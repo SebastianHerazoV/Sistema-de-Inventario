@@ -12,7 +12,7 @@ public class Proveedor {
     public void setNombre(String nombre) { this.nombre = nombre; }
 
     public String getinfoContacto() { return infoContacto; }
-    public void setDescripcion(String infoContacto) { this.infoContacto = infoContacto; }
+    public void setInfoContacto(String infoContacto) { this.infoContacto = infoContacto; }
 
     @Override
     public String toString() {

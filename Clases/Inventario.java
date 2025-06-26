@@ -21,17 +21,29 @@ public class Inventario {
     }
 
     public void registrarEntrada(Producto producto, int cantidad, String responsable) {
+        if (!productos.contains(producto)) {
+            System.out.println("El producto no está registrado en el inventario.");
+            return;
+        }
+
         producto.AñadirStock(cantidad);
         movimientos.add(new Movimiento(producto, LocalDate.now(), cantidad, "ENTRADA", responsable));
     }
 
     public boolean registrarSalida(Producto producto, int cantidad, String responsable) {
+        if (!productos.contains(producto)) {
+            System.out.println("El producto no está registrado en el inventario.");
+            return false;
+        }
+
         if (producto.removerStock(cantidad)) {
             movimientos.add(new Movimiento(producto, LocalDate.now(), cantidad, "SALIDA", responsable));
             return true;
         }
+
         return false;
     }
+
 
     public List<Producto> getTodosLosProductos() {
         return productos;
