@@ -5,6 +5,7 @@ public class Main2 {
         Scanner scanner = new Scanner(System.in);
         Inventario inventario = new Inventario();
 
+        inventario.cargarProductosCSV("productos.csv");
         System.out.println("=== APLICACIÓN DE CONTROL DE INVENTARIOS ===");
         int opcion;
 
@@ -51,6 +52,7 @@ public class Main2 {
                     Producto nuevo = new Producto(id, nombre, categoria, proveedor, stock, precio);
                     if (inventario.agregarProducto(nuevo)) {
                         System.out.println("Producto registrado.");
+                        inventario.guardarProductosCSV("productos.csv");
                     } else {
                         System.out.println("El producto ya existe.");
                     }
