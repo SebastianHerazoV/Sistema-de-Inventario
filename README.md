@@ -7,3 +7,22 @@ Proyecto de POO - Aplicación de control de inventarios
 - David Ricardo Villarreal Archila
 - Juan Sebastian Peraza Romero
 - Sergio Danilo Lopez sierra
+
+## Cómo Compilar y Ejecutar
+
+1.  **Guarda** todos los archivos `.java` en la misma carpeta.
+2.  Abre una **terminal** o **línea de comandos** en esa carpeta.
+3.  **Compila** los archivos Java:
+    ```bash
+    javac *.java
+    ```
+4.  **Ejecuta** la aplicación principal:
+    ```bash
+    java ProductoGUI
+    ```
+
+## Archivos Generados
+
+Al ejecutar la aplicación, se crearán (o actualizarán) los siguientes archivos CSV en la misma carpeta:
+* `productos.csv`: Contiene la información de todos los productos del inventario.
+* `movimientos.csv`: Registra el historial de todas las entradas y salidas de productos.
