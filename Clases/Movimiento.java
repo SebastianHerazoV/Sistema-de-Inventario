@@ -4,7 +4,7 @@ public class Movimiento {
     private Producto producto;
     private LocalDate fecha;
     private int cantidad;
-    private String tipoMovimiento; // "ENTRADA" o "SALIDA"
+    private String tipoMovimiento; // Entrada o salida
     private String responsable;
 
     public Movimiento(Producto producto, LocalDate fecha, int cantidad, String tipoMovimiento, String responsable) {
