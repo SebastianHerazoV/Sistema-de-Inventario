@@ -78,7 +78,7 @@ public class Inventario {
     public void cargarProductosCSV(String rutaArchivo) {
         try (BufferedReader reader = new BufferedReader(new FileReader(rutaArchivo))) {
             String linea;
-            reader.readLine(); // Skip header
+            reader.readLine();
             while ((linea = reader.readLine()) != null) {
                 String[] partes = linea.split(",", -1);
 
@@ -123,27 +123,27 @@ public class Inventario {
         }
     }
 
-    // New method to load movements from CSV
+    
     public void cargarMovimientosCSV(String rutaArchivo) {
         try (BufferedReader reader = new BufferedReader(new FileReader(rutaArchivo))) {
             String linea;
-            reader.readLine(); // Skip header
+            reader.readLine(); 
             while ((linea = reader.readLine()) != null) {
                 String[] partes = linea.split(",", -1);
-                // Expected parts: fecha,tipoMovimiento,idProducto,nombreProducto,cantidad,responsable
+                
                 if (partes.length < 6) continue;
 
                 LocalDate fecha = LocalDate.parse(partes[0]);
                 String tipoMovimiento = partes[1];
                 String idProducto = partes[2];
-                // String nombreProducto = partes[3]; // Not used to reconstruct, product is found by ID
+                
                 int cantidad = Integer.parseInt(partes[4]);
                 String responsable = partes[5];
 
-                // Try to find the product by ID
+                
                 Producto producto = getProductoPorId(idProducto);
                 if (producto != null) {
-                    // Only add if the product exists in the inventory
+                    
                     movimientos.add(new Movimiento(producto, fecha, cantidad, tipoMovimiento, responsable));
                 } else {
                     System.out.println("Advertencia: Producto con ID " + idProducto + " no encontrado para movimiento. Saltando movimiento.");
@@ -153,7 +153,7 @@ public class Inventario {
             System.out.println("Error al cargar movimientos");
         } catch (NumberFormatException e) {
             System.out.println("Error en el formato de números al cargar movimientos");
-        } catch (Exception e) { // Catch any other parsing errors for LocalDate
+        } catch (Exception e) { 
             System.out.println("Error al parsear fecha o otros datos en movimientos: " + e.getMessage());
         }
     }
